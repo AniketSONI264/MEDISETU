@@ -238,22 +238,20 @@ import Image from "next/image";
 import { useRouter } from "next/navigation";
 import { toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
-
-// Dummy API functions (Replace with actual API requests)
 import { uploadAvatar, updateProfile, logoutUser } from "../../utils/api";
 
 export default function ProfilePage() {
-  const { user, checkAuth, loading, setUser } = useAuth(); // ✅ Added setUser here
+  const { user, checkAuth, loading,setLoading, setUser } = useAuth(); // ✅ Added setUser here
   const router = useRouter();
   const [file, setFile] = useState(null);
   const [isOpen, setIsOpen] = useState(false);
-  const [loadingPage, setLoadingPage] = useState(false);
+  // const [loadingPage, setLoadingPage] = useState(false);
 
   useEffect(() => {
     const fetchAuth = async () => {
-      setLoadingPage(true); // Start loading
+      setLoading(true); // Start loading
       await checkAuth();
-      setLoadingPage(false); // End loading
+      setLoading(false); // End loading
     };
     fetchAuth();
   }, [checkAuth]);

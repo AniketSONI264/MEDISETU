@@ -5,7 +5,7 @@ import connectDB from "./config/db.js";
 import authRoutes from "./routes/authRoutes.js";
 import uploadRoutes from "./routes/uploadRoutes.js"
 import cookieParser from "cookie-parser";
-
+import contactRoute from "./routes/contactRoute.js"
 dotenv.config();
 connectDB();
 
@@ -19,6 +19,6 @@ app.use(cors({origin: `http://localhost:3000`,credentials:true}));
 // Routes
 app.use("/api/auth", authRoutes);
 app.use("/api/upload",uploadRoutes);
-
+app.use("/api/contact-us",contactRoute);
 const PORT = process.env.PORT || 5000;
 app.listen(PORT, () => console.log(`${process.env.NODE_ENV}:`+" "+`http://localhost:${PORT}`));

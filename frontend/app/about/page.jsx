@@ -98,74 +98,60 @@ export default function AboutUs() {
   width={600} 
   height={200} 
   priority
-  className="rounded-2xl transition-transform duration-300 hover:scale-105"
-/>
-
-
+  className="rounded-2xl transition-transform duration-300 hover:scale-105"/>
         </motion.div>
       </section>
 
       {/* Our Values Section */}
+
+
       <section className="mt-16">
-        <h2 className="text-center text-2xl sm:text-3xl font-semibold text-teal-700 mb-6">
-          Our Core Values
-        </h2>
-        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8">
-          {values.map(({ icon: Icon, title, description, color }, index) => (
-            <motion.div
-              key={index}
-              initial={{ opacity: 0, y: 20 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.5, delay: index * 0.1 }}
-              className={`bg-white shadow-lg rounded-lg p-6 flex flex-col items-center text-center border-2 ${color} relative overflow-hidden`}
-            >
-              {/* Hover Animation */}
-              {/* <motion.div
-                initial={{ y: 80 }}
-                whileHover={{ y: 0 }}
-                transition={{ duration: 0.5, ease: "easeInOut" }}
-                className="absolute inset-x-0 bottom-0 h-1 bg-gradient-to-r from-transparent via-teal-500 to-transparent"
-              /> */}
-              <motion.div
-  initial={{ opacity: 0 }}
-  whileHover={{ opacity: 1 }}
-  transition={{ duration: 0.5, ease: "easeInOut" }}
-  className="absolute inset-x-0 bottom-0 h-1 bg-gradient-to-r from-transparent via-teal-500 to-transparent"
-/>
+  <h2 className="text-center text-2xl sm:text-3xl font-semibold text-teal-700 mb-6">
+    Our Core Values
+  </h2>
+  <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8">
+    {values.map(({ icon: Icon, title, description, color }, index) => (
+      <motion.div
+        key={index}
+        initial={{ opacity: 0, y: 20 }}
+        animate={{ opacity: 1, y: 0 }}
+        transition={{ duration: 0., delay: index * 0.1 }}
+        whileHover={{ scale: 1.05, boxShadow: "0px 10px 20px rgba(0, 128, 128, 0.3)" }}
+        className="p-6 bg-gradient-to-br from-teal-100 to-white border border-teal-300 rounded-2xl shadow-lg hover:shadow-2xl transition-all flex flex-col items-center text-center relative overflow-hidden"
+      >
+        {/* Underline Animation */}
+        <motion.div
+          initial={{ width: "30%" }}
+          whileHover={{ width: "100%" }}
+          transition={{ duration: 0.4, ease: "easeInOut" }}
+          className="h-[3px] bg-teal-500 absolute bottom-0 left-0 right-0 mx-auto"
+        />
 
+        {/* Icon Animation */}
+        <motion.div
+          animate={{ rotate: [-10, 10, -10] }}
+          transition={{ duration: 1.5, repeat: Infinity, ease: "easeInOut" }}
+          className="flex items-center justify-center text-teal-600 text-6xl mb-3"
+        >
+          <Icon className="w-14 h-14" />
+        </motion.div>
 
-              {/* Icon Animation */}
-              <motion.div
-                animate={{ rotate: [0, 10, -10, 0] }}
-                transition={{ duration: 1.5, repeat: Infinity, ease: "easeInOut" }}
-              >
-                <Icon className="w-12 h-12 text-teal-600" />
-              </motion.div>
+        {/* Content */}
+        <h3 className="mt-4 text-lg sm:text-xl font-semibold text-teal-900 relative">
+          {title}
+          <motion.div
+            initial={{ width: "30%" }}
+            whileHover={{ width: "100%" }}
+            transition={{ duration: 0.1, ease: "easeInOut" }}
+            className="h-[3px] bg-teal-500 absolute bottom-0 left-0 right-0 mx-auto"
+          />
+        </h3>
+        <p className="text-gray-600 mt-2 text-sm sm:text-base">{description}</p>
+      </motion.div>
+    ))}
+  </div>
+</section>
 
-              {/* Content */}
-              <h3 className="mt-4 text-lg sm:text-xl font-semibold text-teal-700 relative">
-                {title}
-                {/* Underline Animation */}
-                {/* <motion.div
-                  initial={{ width: "30%" }}
-                  whileHover={{ width: "100%" }}
-                  transition={{ duration: 0.4 }}
-                  className={`h-[3px] mt-1 bg-${color} absolute bottom-0 left-1/2 transform -translate-x-1/2`}
-                /> */}
-                <motion.div
-  initial={{ width: "30%" }}
-  whileHover={{ width: "100%" }}
-  transition={{ duration: 0.4 }}
-  style={{ backgroundColor: color.replace("border-", "") }} // Remove "border-" & apply background color
-  className="h-[3px] mt-1 absolute bottom-0 left-1/2 transform -translate-x-1/2"
-/>
-
-              </h3>
-              <p className="text-gray-600 mt-2 text-sm sm:text-base">{description}</p>
-            </motion.div>
-          ))}
-        </div>
-      </section>
 
       {/* Call to Action */}
       <section className="mt-16 text-center">
