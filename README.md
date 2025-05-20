@@ -11,8 +11,8 @@ Built with **Next.js**, **Express.js**, and **MongoDB**, MediSetu aims to stream
 
 ### Frontend
 - ⚛️ [Next.js](https://nextjs.org/) — Server-side rendering, route-based code splitting
-- 🎨 [TailwindCSS](https://tailwindcss.com/) *(upcoming)* — For responsive, utility-first styling
-- 💬 [Framer Motion](https://www.framer.com/motion/) *(planned)* — Smooth animations and interactions
+- 🎨 [TailwindCSS](https://tailwindcss.com/)  — For responsive, utility-first styling
+- 💬 [Framer Motion](https://www.framer.com/motion/)  — Smooth animations and interactions
 
 ### Backend
 - 🟩 [Node.js](https://nodejs.org/) + [Express.js](https://expressjs.com/)
