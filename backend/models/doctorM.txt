@@ -1,0 +1,74 @@
+{
+  "firstName": "",
+  "lastName": "",
+  "email": "",
+  "phone": "",
+  "alternatePhone": "",
+  "dob": "",
+  "gender": "",                      // "Male" | "Female" | "Other" | "Prefer not to say"
+  "pincode": "",
+  "state": "",
+  "city": "",
+  "aadharOrGovtId": "",              // File Upload URL (optional)
+
+  "specialization": "",
+  "yearsOfExperience": "",
+  "qualification": "",
+  "registrationNumber": "",
+  "medicalCouncil": "",              // Eg: "Madhya Pradesh Medical Council"
+  "certifications": [],             // Array of upload URLs (optional)
+  "hospitalOrClinic": "",
+  "consultationFees": "",
+  "consultationDuration": "",       // "15 min", "30 min", etc.
+  "consultationMode": "",           // "Online", "Offline", "Both"
+  "languagesSpoken": [],            // ["English", "Hindi", "Telugu"]
+  "shortBio": "",
+
+  "availability": {
+    "monday": {
+      "available": false,
+      "slots": []                    // Example: ["10:00-11:00", "17:00-18:00"]
+    },
+    "tuesday": {
+      "available": false,
+      "slots": []
+    },
+    "wednesday": {
+      "available": false,
+      "slots": []
+    },
+    "thursday": {
+      "available": false,
+      "slots": []
+    },
+    "friday": {
+      "available": false,
+      "slots": []
+    },
+    "saturday": {
+      "available": false,
+      "slots": []
+    },
+    "sunday": {
+      "available": false,
+      "slots": []
+    },
+    "vacationDates": []              // Optional: ["2025-04-10", "2025-04-15"]
+  },
+
+  "maxAppointmentsPerDay": 0,
+
+  "profilePicture": "",              // File Upload URL
+  "detailedBio": "",
+  "introVideo": "",                  // Optional: Upload URL or YouTube link
+  "socialLinks": {
+    "linkedin": "",
+    "website": ""
+  },
+  "tags": [],                        // Example: ["diabetes", "pediatrics", "nutrition"]
+  "preferredCommunication": "",      // "Chat", "Call", "Video", etc.
+
+  "agreedToTerms": false,
+  "consentToBeListed": false,
+  "consentForTelemedicine": false
+}

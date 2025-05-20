@@ -86,7 +86,7 @@ const userSchema = new mongoose.Schema({
     phone:{type:String},
     gender:{type:String,enum:["Male","Female","Other"]},
     dateOfBirth : {type:Date},
-    role : {type:String,enum:["user","admin","doctor"],default:"user"},
+    role : {type:String,enum:["user","admin"],default:"user"},
 },
   {timestamps:true},
 );

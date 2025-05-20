@@ -87,19 +87,15 @@ export default function AboutUs() {
           transition={{ duration: 0.6, ease: "easeOut" }}
           className="md:w-1/2 flex justify-center"
         >
-          {/* <img
-            src="/MEDISETU.png"
-            alt="MediSetu About"
-            className="w-3/4 sm:w-2/3 md:w-full"
-          /> */}
-   <Image 
-  src="/fullHdAbout.png" 
-  alt="MediSetu Logo" 
-  width={600} 
-  height={200} 
-  priority
-  className="rounded-2xl transition-transform duration-300 hover:scale-105"/>
-        </motion.div>
+          
+        <Image 
+          src="/fullHdAbout.png" 
+          alt="MediSetu Logo" 
+          width={600} 
+          height={200} 
+          priority
+          className="rounded-2xl transition-transform duration-300 hover:scale-105"/>
+          </motion.div>
       </section>
 
       {/* Our Values Section */}
@@ -111,21 +107,16 @@ export default function AboutUs() {
   </h2>
   <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8">
     {values.map(({ icon: Icon, title, description, color }, index) => (
-      <motion.div
-        key={index}
-        initial={{ opacity: 0, y: 20 }}
-        animate={{ opacity: 1, y: 0 }}
-        transition={{ duration: 0., delay: index * 0.1 }}
-        whileHover={{ scale: 1.05, boxShadow: "0px 10px 20px rgba(0, 128, 128, 0.3)" }}
-        className="p-6 bg-gradient-to-br from-teal-100 to-white border border-teal-300 rounded-2xl shadow-lg hover:shadow-2xl transition-all flex flex-col items-center text-center relative overflow-hidden"
-      >
-        {/* Underline Animation */}
-        <motion.div
-          initial={{ width: "30%" }}
-          whileHover={{ width: "100%" }}
-          transition={{ duration: 0.4, ease: "easeInOut" }}
-          className="h-[3px] bg-teal-500 absolute bottom-0 left-0 right-0 mx-auto"
-        />
+              <motion.div
+      key={index}
+      initial={{ opacity: 1, y: 0 }}
+      // animate={{ opacity: 1, y: [-5, 5, -5], rotate: [-5, 5, -5] }}
+      transition={{ repeat: Infinity, repeatType: "reverse", duration: 1, ease: "easeInOut" }}
+      whileHover={{ scale: 1.05, boxShadow: "0px 10px 20px rgba(0, 128, 128, 0.3)" }}
+      className="p-6 bg-gradient-to-br from-teal-100 to-white border border-teal-300 rounded-2xl shadow-lg hover:shadow-2xl transition-all flex flex-col items-center text-center relative overflow-hidden"
+       >
+     
+    
 
         {/* Icon Animation */}
         <motion.div
@@ -162,7 +153,7 @@ export default function AboutUs() {
           Book an appointment with a top doctor today.
         </p>
         <motion.a
-          href="/appointments"
+          href="/all-doctors"
           whileHover={{ scale: 1.05 }}
           whileTap={{ scale: 0.95 }}
           className="mt-6 inline-block bg-teal-600 text-white text-sm sm:text-lg font-bold px-5 sm:px-6 py-2 sm:py-3 rounded-full shadow-md hover:bg-teal-500 transition"

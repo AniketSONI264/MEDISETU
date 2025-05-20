@@ -5,6 +5,7 @@ import Contact from "@/components/Contact";
 import Home1 from "@/components/homePage/home_1"
 import Home5 from "@/components/homePage/home_5_faqs"
 import Loader from "@/components/loader";
+import Chatbot from "@/components/Chatbot/Chatbot";
 // import Profile from "@"
 export default function HomePage() {  //frontend\app\routes\aboutUs.jsx
   return (
@@ -16,6 +17,7 @@ export default function HomePage() {  //frontend\app\routes\aboutUs.jsx
       <Testimonials /> 
       <Contact />
       <Home5 />
+      <Chatbot />
     </div>
   );
 }

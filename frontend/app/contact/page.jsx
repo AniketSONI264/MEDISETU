@@ -5,7 +5,6 @@ import { Send, User, Mail,Clock, Phone, MessageSquare,MapPin ,Handshake, Stethos
 import { toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 import { motion } from "framer-motion";
-
 export default function ContactUs() {
   const [formData, setFormData] = useState({ name: "", email: "", phone: "", message: "" });
   const [loading, setLoading] = useState(false);
@@ -15,28 +14,6 @@ export default function ContactUs() {
   const handleChange = (e) => {
     setFormData({ ...formData, [e.target.name]: e.target.value });
   };
-
-  // const handleSubmit = async (e) => {
-  //   e.preventDefault();
-  //   setLoading(true);
-  //   try {
-  //     const response = await fetch("/contact-us", {
-  //       method: "POST",
-  //       headers: { "Content-Type": "application/json" },
-  //       body: JSON.stringify(formData),
-  //     });
-  //     if (response.ok) {
-  //       toast.success("Message sent successfully!");
-  //       setFormData({ name: "", email: "", phone: "", message: "" });
-  //     } else {
-  //       toast.error("Failed to send message. Try again!");
-  //     }
-  //   } catch (error) {
-  //     toast.error("Something went wrong!");
-  //   }
-  //   setLoading(false);
-  // };
-
   const handleSubmit = async (e) => {
     e.preventDefault();
 
@@ -121,9 +98,11 @@ export default function ContactUs() {
           { day: "Saturday - Sunday", hours: "10 AM - 4 PM" }
         ].map((item, index) => (
           <motion.div
-            key={index}
+            key={index} 
             whileHover={{ scale: 1.05 }}
             className="p-4 bg-gradient-to-br from-teal-100 to-white border border-teal-300 rounded-xl shadow-md hover:shadow-lg transition-all"
+            animate={{ rotate: [-5, 2, -5] }}
+            transition={{ repeat: Infinity, duration: 2.0, ease: "easeInOut" }}  
           >
             <Clock className="text-teal-600 mx-auto mb-2" />
             <p className="text-gray-800 font-semibold">{item.day}</p>
@@ -184,72 +163,35 @@ export default function ContactUs() {
 
         {successMessage && <p className="text-green-600 text-sm">{successMessage}</p>}
         {error && <p className="text-red-600 text-sm">{error}</p>}
-
         <motion.button
-          whileHover={{ scale: 1.05 }}
-          type="submit"
-          className="w-full bg-teal-600 text-white py-3 rounded-lg font-semibold flex items-center justify-center gap-2 hover:bg-teal-700 transition"
-          disabled={loading}
-        >
-          {loading ? "Sending..." : <><Send className="w-5 h-5" /> Send Message</>}
-        </motion.button>
+     whileHover={{ scale: 1.05 }}
+     type="submit"
+     className="w-full bg-teal-600 text-white py-3 rounded-lg font-semibold flex items-center justify-center gap-2 hover:bg-teal-700 transition"
+     disabled={loading}
+  >
+  {loading ? "Sending..." : (
+    <>
+      <motion.span 
+        animate={{ x: [-5, 5, -5] }} 
+        transition={{ repeat: Infinity, duration: 0.8, ease: "easeInOut" }}
+      >
+      
+    <Send className="w-5 h-5" />
+      </motion.span >
+      <motion.span 
+        animate={{ x: [-5, 5, -5] }} 
+        transition={{ repeat: Infinity, duration: 0.8, ease: "easeInOut" }}
+      >
+      
+        Send Message
+      </motion.span >
+    </>
+  )}
+</motion.button>
+
       </form>
     </div>
-  
-      
-        {/* <div className="bg-white p-6 sm:p-8 rounded-2xl shadow-xl border border-teal-300">
-  <h3 className="text-xl sm:text-2xl font-semibold mb-6 text-center text-teal-900">Share Your Queries</h3>
-  <form className="space-y-5">
-    {[
-      { name: "name", placeholder: "Your Name", type: "text", icon: <User /> },
-      { name: "email", placeholder: "Your Email", type: "email", icon: <Mail /> },
-      { name: "phone", placeholder: "Your Phone", type: "text", icon: <Phone /> },
-    ].map((field, index) => (
-      <div key={index} className="relative flex items-center">
-        <motion.div
-          animate={{ rotate: [-10, 10, -10] }} // Rotates left to right
-          transition={{ repeat: Infinity, duration: 0.5, ease: "easeInOut" }}
-          className="absolute left-3 text-teal-600 text-lg"
-        >
-          {field.icon}
-        </motion.div>
-        <input
-          type={field.type}
-          name={field.name}
-          placeholder={field.placeholder}
-          required
-          className="w-full pl-10 p-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-teal-500 transition"
-        />
-      </div>
-    ))}
-
-    <div className="relative">
-      <motion.div
-        animate={{ rotate: [-10, 10, -10] }} // Rotates left to right
-        transition={{ repeat: Infinity, duration: 1.5, ease: "easeInOut" }}
-        className="absolute left-3 top-4 text-teal-600 text-lg"
-      >
-        <MessageSquare />
-      </motion.div>
-      <textarea
-        name="message"
-        placeholder="Your Message"
-        required
-        className="w-full pl-10 p-3 border border-gray-300 rounded-lg h-28 focus:ring-2 focus:ring-teal-500 transition"
-      ></textarea>
-    </div>
-
-    <motion.button
-      whileHover={{ scale: 1.05 }}
-      type="submit"
-      className="w-full bg-teal-600 text-white py-3 rounded-lg font-semibold flex items-center justify-center gap-2 hover:bg-teal-700 transition"
-    >
-      <Send className="w-5 h-5" /> Send Message
-    </motion.button>
-  </form>
-</div> */}
-
-</div>
+  </div>
       
 
 <div className="mt-10 grid md:grid-cols-3 gap-6 text-center">
@@ -262,10 +204,10 @@ export default function ContactUs() {
       key={index}
       whileHover={{ scale: 1.05 }}
       className="p-6 bg-gradient-to-br from-teal-100 to-white border border-teal-300 rounded-2xl shadow-lg hover:shadow-xl transition-all"
-    >
+            transition={{ repeat: Infinity, duration: 1.5, ease: "easeInOut" }}
+   >
       <motion.div 
-        animate={{ rotate: [-10, 10, -10] }} // Rotate left to right
-        transition={{ repeat: Infinity, duration: 0.5, ease: "easeInOut" }}
+            transition={{ repeat: Infinity, duration: 0.5, ease: "easeInOut" }}
         className="flex items-center justify-center text-teal-600 text-9xl mb-3"
         size={50}
       > 

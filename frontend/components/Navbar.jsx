@@ -18,6 +18,7 @@ import {
   HeartPulse,
   CalendarCheck,
   UserCircle,
+  ClipboardPlus,
 } from "lucide-react";
 import Link from "next/link";
 import AuthDialog from "./login&signUp/authDialog";
@@ -40,38 +41,35 @@ export default function Navbar() {
   //   setIsAuthOpen(false);
   // };
   useEffect(() => {
-    const fetchAuth = async () => {
-      await checkAuth();
-    };
-    fetchAuth();
+    // Auth check is now handled by AuthContext
   }, []);
 
-    const handleLogout = async () => {
-      try {
-        await logoutUser();
-        setUser(null);
-        router.push("/");
-        toast.success("Logged out successfully!");
-      } catch (error) {
-        console.error("Logout failed", error);
-        toast.error("Failed to logout. Try again!");
-      }
-    };
+  const handleLogout = async () => {
+    try {
+      await logoutUser();
+      setUser(null);
+      router.push("/");
+      toast.success("Logged out successfully!");
+    } catch (error) {
+      console.error("Logout failed", error);
+      toast.error("Failed to logout. Try again!");
+    }
+  };
   
   const services = [
     {
-      href: "/services/general-consultation",
-      label: "General Consultation",
-      Icon: User,
+      href: "/register-doctor",
+      label: "Register As A Doctor",
+      Icon: ClipboardPlus,
     },
     {
-      href: "/services/online-appointments",
-      label: "Online Appointments",
+      href: "/all-doctors",
+      label: "All Doctors",
       Icon: CalendarCheck,
     },
     {
-      href: "/services/video-consultation",
-      label: "Video Consultation",
+      href: "/services/my-appointments",
+      label: "All Appointments",
       Icon: Video,
     },
     {
@@ -99,7 +97,7 @@ export default function Navbar() {
       <div className="backdrop-blur-md bg-white/50 shadow-lg rounded-b-xl border-b border-gray-200">
         <div className="container mx-auto px-4 sm:px-6 py-3 flex justify-between items-center">
           {/* Logo */}
-          <Link href="/" className="flex items-center space-x-2">
+          <Link href="/" className="flex items-center space-x-2" prefetch>
             <motion.div
               animate={{ rotate: [0, 15, -15, 0] }}
               transition={{ duration: 1, repeat: Infinity }}
@@ -175,6 +173,7 @@ export default function Navbar() {
                   key={href}
                   href={href}
                   className="relative group flex items-center space-x-2"
+                  prefetch
                 >
                   <motion.div
                     animate={{ rotate: [0, 10, -10, 0] }}
@@ -207,7 +206,7 @@ export default function Navbar() {
               <span className="text-gray-500 animate-pulse pt-[150px] pb-[150px]">Loading...</span> // Show loading state while authentication is being checked
             ) : isLoggedIn ? (
               // Show Profile Icon when Logged In
-              <Link href="/profile" className="flex items-center space-x-2">
+              <Link href="/profile" className="flex items-center space-x-2" prefetch>
   <motion.div
     animate={{ rotate: [0, 15, -15, 0] }}
     transition={{ duration: 1, repeat: Infinity }}
@@ -360,7 +359,7 @@ export default function Navbar() {
                 //   className="flex items-center space-x-2 group"
                 // >
                 //   <motion.img
-                //     src={user?.profilePic || "/default-avatar.png"}
+                //     src={user?.profilePic || "/MediSetu Logo White.svg"}
                 //     alt="User Avatar"
                 //     className="w-10 h-10 rounded-full border-2 border-teal-500 shadow-md"
                 //   />
