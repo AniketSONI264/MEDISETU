@@ -2,9 +2,8 @@
   "type": "module",
   
   "scripts": {
-    "start": "nodemon server.js" // or app.js, main.js, etc.
-  }
-
+    "start": "nodemon server.js"
+  },
 
   "dependencies": {
     "axios": "^1.8.3",
