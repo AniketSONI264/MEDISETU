@@ -111,7 +111,7 @@
 import { useState } from "react";
 import { X, Mail, Lock, User, Eye, EyeOff } from "lucide-react";
 import { registerUser, loginUser } from "../../utils/api";
-import { toast } from "react-toastify"; // ✅ Import Toast
+import { toast } from "react-hot-toast"; // ✅ Import Toast
 import "react-toastify/dist/ReactToastify.css"; // ✅ Import Toast Styles
 
 export default function AuthDialog({ isOpen, onClose }) {

@@ -20,7 +20,7 @@ export const AuthProvider = ({children}) =>{
     
     setLoading(true);
     try {
-        const response = await axios.get(`${process.env.NEXT_PUBLIC_BACKEND_URL}/api/auth/me`, {
+        const response = await axios.get(`${process.env.NEXT_PUBLIC_BACKEND_URL}/auth/me`, {
             withCredentials: true,
         });
         console.log("Set User response: ", response.data);

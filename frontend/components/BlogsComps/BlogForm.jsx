@@ -4,7 +4,7 @@ import { useEffect, useState } from 'react';
 import { Input } from '@/components/ui/Input';
 import { Button } from '@/components/ui/button';
 import  Textarea  from '@/components/ui/Textarea';
-import  Label  from '@/components/ui/Label';
+import  Label  from '@/components/ui/Label.jsx';
 import { Select, SelectItem } from '@/components/ui/Select';
 import toast from 'react-hot-toast';
 

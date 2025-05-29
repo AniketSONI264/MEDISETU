@@ -3,7 +3,7 @@ import { toast } from "react-hot-toast"; // or any toast library you use
 import axios from "axios";
 
 const API = axios.create({
-  baseURL: process.env.NEXT_PUBLIC_API_URL || "http://localhost:5000/api",
+  baseURL: process.env.NEXT_PUBLIC_BACKEND_URL ,
   withCredentials: true, // THIS IS IMPORTANT for cookies/sessions!
   headers: {
     "Content-Type": "application/json",

@@ -8,7 +8,7 @@ export const useAuth = () => {
     // Check if user is logged in
     const checkAuth = async () => {
       try {
-        const response = await fetch('/api/auth/me');
+        const response = await fetch('/auth/me');
         if (response.ok) {
           const userData = await response.json();
           setUser(userData);
