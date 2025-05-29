@@ -61,10 +61,10 @@
 //   );
 // }
 
-
+"use client"
 import React from "react";
 import { motion } from "framer-motion";
-import { FaUserShield, FaLock, FaCookieBite, FaRegClipboard, FaUserEdit } from "react-icons/fa";
+import { FaUserShield, FaLock, FaCookieBite, FaClipboardList , FaUserEdit } from "react-icons/fa";
 
 export default function PrivacyPolicy() {
   return (
@@ -94,7 +94,7 @@ export default function PrivacyPolicy() {
           </ul>
 
           <h2 className="text-2xl font-semibold mt-6 flex items-center gap-2">
-            <FaRegClipboard className="text-[#2563EB] animate-[tilt_2s_ease-in-out_infinite]" /> 2. How We Use Your Data
+            <FaClipboardList  className="text-[#2563EB] animate-[tilt_2s_ease-in-out_infinite]" /> 2. How We Use Your Data
           </h2>
           <p>We use your data to:</p>
           <ul className="list-disc list-inside">
