@@ -4,12 +4,21 @@ import { useEffect, useState } from 'react';
 import { Input } from '@/components/ui/Input';
 import { Button } from '@/components/ui/button';
 import  Textarea  from '@/components/ui/Textarea';
-import  Label  from '@/components/ui/Label.jsx';
+// import  Label  from '@/components/ui/Label';
 import { Select, SelectItem } from '@/components/ui/Select';
 import toast from 'react-hot-toast';
 
 const cloudName = 'dr10kpkc4';
 const uploadPreset = 'blogs_preset';
+
+const Label = ({ children, className = '', ...props }) => (
+  <label
+    className={`block text-sm font-medium text-gray-700 mb-1 ${className}`}
+    {...props}
+  >
+    {children}
+  </label>
+);
 
 const CreateBlogForm = ({ onSubmit, initialData = {} }) => {
   const [title, setTitle] = useState('');
