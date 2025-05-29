@@ -74,9 +74,9 @@
 
 // 'use client';
 // import { useState } from 'react';
-// import { Input } from '@/components/ui/input';
+// import { Input } from '@/components/ui/Input';
 // import { Button } from '@/components/ui/button';
-// import { Textarea } from '@/components/ui/textarea';
+// import { Textarea } from '@/components/ui/Textarea';
 // import { Label } from '@/components/ui/label';
 // import toast from 'react-hot-toast';
 
@@ -186,9 +186,9 @@
 
 // 'use client';
 // import { useState } from 'react';
-// import { Input } from '@/components/ui/input';
+// import { Input } from '@/components/ui/Input';
 // import { Button } from '@/components/ui/button';
-// import { Textarea } from '@/components/ui/textarea';
+// import { Textarea } from '@/components/ui/Textarea';
 // import { Label } from '@/components/ui/label';
 // import { Select, SelectItem } from '@/components/ui/select';
 // import toast from 'react-hot-toast';

@@ -2,10 +2,10 @@
 
 import { useState } from "react";
 import { useRouter } from "next/navigation";
-import { Input } from "@/components/ui/input";
-import { Textarea } from "@/components/ui/textarea";
+import { Input } from "@/components/ui/Input";
+import { Textarea } from "@/components/ui/Textarea";
 import { Button } from "@/components/ui/button";
-import { toast } from "sonner"; // Optional, for toast notifications
+import { toast } from "react-hot-toast"; // Optional, for toast notifications
 import { createBlogAPI } from "@/utils/api"; // Your API function
 
 const CreateBlogPage = () => {

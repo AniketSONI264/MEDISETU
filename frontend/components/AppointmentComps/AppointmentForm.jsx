@@ -2,7 +2,7 @@
 import React, { useState } from "react";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/Input";
-// import { Textarea } from "@/components/ui/textarea";
+// import { Textarea } from "@/components/ui/Textarea";
 import axios from "axios";
 
 const AppointmentForm = ({ doctorId, date, time, onClose }) => {

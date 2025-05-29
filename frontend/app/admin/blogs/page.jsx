@@ -2,7 +2,7 @@
 
 // import { useState, useEffect } from 'react';
 // import AdminPageWrapper from '@/components/admin/AdminPageWrapper';
-// import Table from '@/components/ui/table';
+// import Table from '@/components/ui/Table';
 // import SearchInput from '@/components/ui/SearchInput';
 // import Select from '@/components/ui/select';
 // import { Calendar, Eye, ThumbsUp, User } from 'lucide-react';
@@ -187,8 +187,8 @@
 
 // import { useState } from "react";
 // import { Button } from "@/components/ui/button";
-// import { Input } from "@/components/ui/input";
-// import { Textarea } from "@/components/ui/textarea";
+// import { Input } from "@/components/ui/Input";
+// import { Textarea } from "@/components/ui/Textarea";
 // import useAdminBlogs from "@/hooks/admin/useAdminBlogs";
 // import BlogTable from "@/components/BlogsComps/BlogTable";
 // import BlogModal from "@/components/BlogsComps/BlogModal.jsx";
@@ -450,7 +450,7 @@ const AdminBlogsPage = () => {
   };
 
   return (
-    <div className="p-4 space-y-4 mt-10">
+    <div className="p-4 space-y-4 mt-10git">
       <div className="flex justify-between items-center">
         <h1 className="text-2xl font-semibold">Admin Blog Management</h1>
         <Button onClick={handleOpenCreate}>+ New Blog</Button>

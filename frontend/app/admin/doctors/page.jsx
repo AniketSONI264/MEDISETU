@@ -8,7 +8,7 @@
 // import toast from 'react-hot-toast';
 
 // import AdminPageWrapper from '@/components/admin/AdminPageWrapper';
-// import Table from '@/components/ui/table';
+// import Table from '@/components/ui/Table';
 // import { useAuth } from '@/context/AuthContext';
 // import useAdminDoctors from '@/hooks/admin/useAdminDoctors';
 
@@ -207,7 +207,7 @@ import { motion } from 'framer-motion';
 import toast from 'react-hot-toast';
 
 import AdminPageWrapper from '@/components/admin/AdminPageWrapper';
-import Table from '@/components/ui/table';
+import Table from '@/components/ui/Table';
 import { useAuth } from '@/context/AuthContext';
 import useAdminDoctors from '@/hooks/admin/useAdminDoctors';
 import SearchBar from '@/components/ui/SearchBar';

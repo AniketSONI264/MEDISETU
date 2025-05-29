@@ -10,7 +10,7 @@
 
 // import { useState, useMemo } from "react";
 // import { useAppointments } from "@/hooks/doctorPanelHooks";
-// import { Input } from "@/components/ui/input";
+// import { Input } from "@/components/ui/Input";
 // import { Select, SelectItem } from "@/components/ui/select";
 // import { Card, CardContent } from "@/components/ui/card";
 // import { format } from "date-fns";
@@ -121,7 +121,7 @@
 import { useState, useMemo } from "react";
 import useDoctorAuth from "@/hooks/useDoctorAuth";
 import useAppointments from "@/hooks/doctor/useAppointment";
-import { Input } from "@/components/ui/input";
+import { Input } from "@/components/ui/Input";
 import { Select, SelectItem } from "@/components/ui/select";
 import { Card, CardContent } from "@/components/ui/card";
 import { format } from "date-fns";

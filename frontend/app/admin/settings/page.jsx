@@ -2,7 +2,7 @@
 
 import { useState } from 'react';
 import AdminPageWrapper from '@/components/admin/AdminPageWrapper';
-import { Input } from '@/components/ui/input';
+import { Input } from '@/components/ui/Input';
 import { toast } from 'react-hot-toast';
 import { useAuth } from '@/context/AuthContext';
 import { Tabs, TabsContent, TabsList, TabsTrigger } from '@/components/ui/tabs';

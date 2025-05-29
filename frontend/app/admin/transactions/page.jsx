@@ -2,7 +2,7 @@
 
 import { useState, useEffect } from 'react';
 import AdminPageWrapper from '@/components/admin/AdminPageWrapper';
-import Table from '@/components/ui/table';
+import Table from '@/components/ui/Table';
 import Select from '@/components/ui/select';
 import { Calendar, CreditCard, User, Search } from 'lucide-react';
 import toast from 'react-hot-toast';

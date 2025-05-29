@@ -1,6 +1,6 @@
 // // components/admin/blog/BlogTable.jsx
 // import { Button } from "@/components/ui/button";
-// import  Table from "@/components/ui/table";
+// import  Table from "@/components/ui/Table";
 // import { Edit, Trash, Eye, EyeOff } from "lucide-react";
 // import moment from "moment";
 
@@ -54,7 +54,7 @@
 
 // // components/admin/blog/BlogTable.jsx
 // import { Button } from "@/components/ui/button";
-// import Table from "@/components/ui/table";
+// import Table from "@/components/ui/Table";
 // import { Edit, Trash, Eye, EyeOff } from "lucide-react";
 // import moment from "moment";
 
@@ -166,7 +166,7 @@
 
 
 import { Button } from "@/components/ui/button";
-import Table from "@/components/ui/table";
+import Table from "@/components/ui/Table";
 import { Edit, Trash, Eye, EyeOff } from "lucide-react";
 import moment from "moment";
 

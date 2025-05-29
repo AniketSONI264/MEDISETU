@@ -27,7 +27,7 @@ export default function ContactUs() {
 
     try {
       // Ensure this is the correct API endpoint
-      const response = await fetch("http://localhost:5000/api/contact-us", {
+      const response = await fetch(`${process.env.NEXT_PUBLIC_BACKEND_URL}/api/contact-us`, {
         method: "POST",
         headers: {
           "Content-Type": "application/json",

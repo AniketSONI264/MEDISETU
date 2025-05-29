@@ -3,7 +3,7 @@
 
 import React, { useState, useEffect, Fragment } from 'react';
 import AdminPageWrapper from '@/components/admin/AdminPageWrapper';
-import Table from '@/components/ui/table';
+import Table from '@/components/ui/Table';
 import SearchInput from '@/components/ui/SearchInput';
 import Select from '@/components/ui/Select';
 import { Mail, Phone, Shield, X } from 'lucide-react';

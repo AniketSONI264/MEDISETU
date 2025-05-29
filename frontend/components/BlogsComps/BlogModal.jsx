@@ -3,7 +3,7 @@
 
 // // // components/admin/blog/BlogModal.jsx
 // // import { Dialog, DialogContent, DialogHeader, DialogTitle } from "@/components/ui/dialog";
-// // import { Input } from "@/components/ui/input";
+// // import { Input } from "@/components/ui/Input";
 // // import Textarea from "@/components/ui/Textarea";
 // // import { Button } from "@/components/ui/button";
 // // import { useState, useEffect } from "react";
