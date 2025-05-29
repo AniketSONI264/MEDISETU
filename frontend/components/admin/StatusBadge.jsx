@@ -1,6 +1,6 @@
 'use client';
 
-import { Badge } from "@/components/ui/badge";
+import { Badge } from "@/components/ui/Badge";
 import { motion } from "framer-motion";
 
 const statusConfig = {

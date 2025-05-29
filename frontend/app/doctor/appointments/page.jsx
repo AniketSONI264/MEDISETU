@@ -11,7 +11,7 @@
 // import { useState, useMemo } from "react";
 // import { useAppointments } from "@/hooks/doctorPanelHooks";
 // import { Input } from "@/components/ui/Input";
-// import { Select, SelectItem } from "@/components/ui/select";
+// import { Select, SelectItem } from "@/components/ui/Select";
 // import { Card, CardContent } from "@/components/ui/card";
 // import { format } from "date-fns";
 // import { Loader2 } from "lucide-react";
@@ -122,7 +122,7 @@ import { useState, useMemo } from "react";
 import useDoctorAuth from "@/hooks/useDoctorAuth";
 import useAppointments from "@/hooks/doctor/useAppointment";
 import { Input } from "@/components/ui/Input";
-import { Select, SelectItem } from "@/components/ui/select";
+import { Select, SelectItem } from "@/components/ui/Select";
 import { Card, CardContent } from "@/components/ui/card";
 import { format } from "date-fns";
 import { Loader2 } from "lucide-react";

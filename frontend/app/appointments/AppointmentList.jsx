@@ -1,7 +1,7 @@
 // "use client";
 // import { useState, useMemo } from "react";
 // import UserAppointmentsCard from "./AppointmentCard";
-// import { Select, SelectItem } from "@/components/ui/select";
+// import { Select, SelectItem } from "@/components/ui/Select";
 // import { Input } from "@/components/ui/Input";
 // import { Button } from "@/components/ui/button";
 // import { format, isAfter, isBefore } from "date-fns";
@@ -210,7 +210,7 @@ import { getUserAppointments } from "@/utils/api";
 import AppointmentCard from "./AppointmentCard";
 import { Loader2 } from "lucide-react";
 import { Input } from "@/components/ui/Input";
-import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "@/components/ui/select";
+import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "@/components/ui/Select";
 
 const AppointmentList = () => {
   const [appointments, setAppointments] = useState([]);

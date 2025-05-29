@@ -190,7 +190,7 @@
 // import { Button } from '@/components/ui/button';
 // import { Textarea } from '@/components/ui/Textarea';
 // import { Label } from '@/components/ui/label';
-// import { Select, SelectItem } from '@/components/ui/select';
+// import { Select, SelectItem } from '@/components/ui/Select';
 // import toast from 'react-hot-toast';
 
 // const cloudName = 'YOUR_CLOUD_NAME';
@@ -399,7 +399,7 @@ import { Input } from '@/components/ui/Input';
 import { Button } from '@/components/ui/button';
 import  Textarea  from '@/components/ui/Textarea';
 import { Label } from '@/components/ui/Label';
-import { Select, SelectItem } from '@/components/ui/select';
+import { Select, SelectItem } from '@/components/ui/Select';
 import toast from 'react-hot-toast';
 
 const cloudName = 'dr10kpkc4';

@@ -4,7 +4,7 @@
 // import AdminPageWrapper from '@/components/admin/AdminPageWrapper';
 // import Table from '@/components/ui/Table';
 // import SearchInput from '@/components/ui/SearchInput';
-// import Select from '@/components/ui/select';
+// import Select from '@/components/ui/Select';
 // import { Calendar, Eye, ThumbsUp, User } from 'lucide-react';
 // import toast from 'react-hot-toast';
 

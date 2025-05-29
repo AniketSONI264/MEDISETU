@@ -3,7 +3,7 @@
 import { useState, useEffect } from 'react';
 import AdminPageWrapper from '@/components/admin/AdminPageWrapper';
 import Table from '@/components/ui/Table';
-import Select from '@/components/ui/select';
+import Select from '@/components/ui/Select';
 import { Calendar, CreditCard, User, Search } from 'lucide-react';
 import toast from 'react-hot-toast';
 import { motion } from 'framer-motion';
