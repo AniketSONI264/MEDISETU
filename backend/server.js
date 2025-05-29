@@ -1,80 +1,3 @@
-// import express from "express";
-// import dotenv from "dotenv";
-// import cors from "cors";
-// import connectDB from "./config/db.js";
-// import authRoutes from "./routes/authRoutes.js";
-// import uploadRoutes from "./routes/uploadRoutes.js"
-// import cookieParser from "cookie-parser";
-// import contactRoute from "./routes/contactRoute.js"
-// dotenv.config();
-// connectDB();
-
-// const app = express();
-
-// // Middleware
-// app.use(express.json());
-// app.use(cookieParser())
-// app.use(cors({origin: `http://localhost:3000`,credentials:true}));
-// // console.log(process.env.FRONTEND_URL)
-// // Routes
-// app.use("/api/auth", authRoutes);
-// app.use("/api/upload",uploadRoutes);
-// app.use("/api/contact-us",contactRoute);
-// const PORT = process.env.PORT || 5000;
-// app.listen(PORT, () => console.log(`${process.env.NODE_ENV}:`+" "+`http://localhost:${PORT}`));
-
-
-
-
-
-// import express from "express";
-// import dotenv from "dotenv";
-// import cors from "cors";
-// import connectDB from "./config/db.js";
-// import authRoutes from "./routes/authRoutes.js";
-// import doctorAuthRoutes from "./routes/doctorRoutes.js"; // 🆕 Doctor auth
-// import uploadRoutes from "./routes/uploadRoutes.js";
-// import doctorUploadRoutes from "./routes/docImgUpload.js"; // 🆕 Doctor image upload
-// import cookieParser from "cookie-parser";
-// import contactRoute from "./routes/contactRoute.js";
-// import fetchAll from "./routes/fetchEveryone.js";
-// import appointmentRoutes from "./routes/appointmentRoutes.js";
-// import userRoutes from "./routes/userRoutes.js"; // Add user routes
-
-// dotenv.config();
-// connectDB();
-
-// const app = express();
-
-// // 🔧 Middlewares
-// app.use(express.json());
-// app.use(cookieParser());
-// app.use(
-//   cors({
-//     origin: process.env.FRONTEND_URL || "http://localhost:3000",
-//     credentials: true,
-//   })
-// );
-
-// app.get("/", async (req,res)=>{
-//   res.status(200).json("Welcome To MEDISETU...");
-// })
-
-// // 🚀 Routes
-// app.use("/api/auth", authRoutes);                          // User Auth
-// app.use("/api/doctor/auth", doctorAuthRoutes);             // 🆕 Doctor Auth
-// app.use("/api/upload", uploadRoutes);                      // User Image Upload
-// app.use("/api/doctor/upload", doctorUploadRoutes);         // 🆕 Doctor Image Upload
-// app.use("/api/contact-us", contactRoute);                  // Contact Form
-// app.use("/api",fetchAll);                                  // Fetch User & Doctor Route
-// app.use("/api/appointments",appointmentRoutes);
-// app.use("/api/user", userRoutes); // Add user routes
-// // 🟢 Server Ready
-// const PORT = process.env.PORT || 5000;
-// app.listen(PORT, () =>
-//   console.log(`${process.env.NODE_ENV}: http://localhost:${PORT}`)
-// );
-
 
 // // server.js
 // import express from "express";
@@ -92,7 +15,8 @@
 // import fetchAll from "./routes/fetchEveryone.js";
 // import appointmentRoutes from "./routes/appointmentRoutes.js";
 // import userRoutes from "./routes/userRoutes.js";
-// import adminRoutes from "./routes/admin.js"; // ✅ NEW — admin panel APIs
+// import adminRoutes from "./routes/admin.js";                // ✅ General Admin APIs
+// import blogAdminRoutes from "./routes/admin/adminBlogRoutes.js"; // ✅ Admin Blog CRUD APIs
 
 // // 🔌 Load .env and DB
 // dotenv.config();
@@ -105,10 +29,11 @@
 // app.use(cookieParser());
 // app.use(
 //   cors({
-//     origin: process.env.FRONTEND_URL || "http://localhost:3000",
+//     origin: process.env.FRONTEND_URL,
 //     credentials: true,
 //   })
 // );
+// app.use(express.urlencoded({ extended: true })); // parses form data
 
 // // 🔥 Welcome Route
 // app.get("/", (req, res) => {
@@ -121,12 +46,13 @@
 // app.use("/api/upload", uploadRoutes);              // User Uploads
 // app.use("/api/doctor/upload", doctorUploadRoutes); // Doctor Uploads
 // app.use("/api/contact-us", contactRoute);          // Contact Form
-// app.use("/api", fetchAll);                         // Public User & Doctor Fetch
+// app.use("/api", fetchAll);                         // Public Data
 // app.use("/api/appointments", appointmentRoutes);   // Appointments
-// app.use("/api/user", userRoutes);                  // User-specific actions
-// app.use("/api/admin", adminRoutes);                // ✅ Admin routes
+// app.use("/api/user", userRoutes);                  // User Actions
+// app.use("/api/admin", adminRoutes);                // General Admin Routes
+// app.use("/api/admin/blogs", blogAdminRoutes);      // 📝 Blog CRUD for Admin
 
-// // ✅ Fallback Error Handler (optional but recommended)
+// // 🔥 Error Handler
 // app.use((err, req, res, next) => {
 //   console.error("💥 SERVER ERROR:", err.stack);
 //   res.status(500).json({
@@ -140,6 +66,10 @@
 // app.listen(PORT, () =>
 //   console.log(`🔥 Server running on: http://localhost:${PORT} (${process.env.NODE_ENV})`)
 // );
+
+
+
+
 
 
 // server.js
@@ -158,25 +88,41 @@ import contactRoute from "./routes/contactRoute.js";
 import fetchAll from "./routes/fetchEveryone.js";
 import appointmentRoutes from "./routes/appointmentRoutes.js";
 import userRoutes from "./routes/userRoutes.js";
-import adminRoutes from "./routes/admin.js";                // ✅ General Admin APIs
-import blogAdminRoutes from "./routes/admin/adminBlogRoutes.js"; // ✅ Admin Blog CRUD APIs
+import adminRoutes from "./routes/admin.js";
+import blogAdminRoutes from "./routes/admin/adminBlogRoutes.js";
 
-// 🔌 Load .env and DB
+// 🔌 Load env variables & connect DB
 dotenv.config();
 connectDB();
 
 const app = express();
 
-// 🔧 Global Middlewares
+// ✅ ALLOWED ORIGINS WHITELIST
+const allowedOrigins = [
+  "http://localhost:3000",
+  "https://medisetu.vercel.app",
+  "https://medisetu-ll2duvl46-aniketsoni264s-projects.vercel.app",
+];
+
+// ✅ CORS OPTIONS FUNCTION
+const corsOptions = {
+  origin: function (origin, callback) {
+    // Allow requests with no origin (like mobile apps or curl)
+    if (!origin) return callback(null, true);
+    if (allowedOrigins.includes(origin)) {
+      callback(null, true);
+    } else {
+      callback(new Error("⛔ Not allowed by CORS"));
+    }
+  },
+  credentials: true,
+};
+
+// 🔧 Middlewares
 app.use(express.json());
+app.use(express.urlencoded({ extended: true }));
 app.use(cookieParser());
-app.use(
-  cors({
-    origin: process.env.FRONTEND_URL,
-    credentials: true,
-  })
-);
-app.use(express.urlencoded({ extended: true })); // parses form data
+app.use(cors(corsOptions));
 
 // 🔥 Welcome Route
 app.get("/", (req, res) => {
@@ -192,8 +138,8 @@ app.use("/api/contact-us", contactRoute);          // Contact Form
 app.use("/api", fetchAll);                         // Public Data
 app.use("/api/appointments", appointmentRoutes);   // Appointments
 app.use("/api/user", userRoutes);                  // User Actions
-app.use("/api/admin", adminRoutes);                // General Admin Routes
-app.use("/api/admin/blogs", blogAdminRoutes);      // 📝 Blog CRUD for Admin
+app.use("/api/admin", adminRoutes);                // Admin Routes
+app.use("/api/admin/blogs", blogAdminRoutes);      // Admin Blog CRUD
 
 // 🔥 Error Handler
 app.use((err, req, res, next) => {
@@ -204,7 +150,7 @@ app.use((err, req, res, next) => {
   });
 });
 
-// 🟢 Server Bootup
+// 🟢 Server Start
 const PORT = process.env.PORT || 5000;
 app.listen(PORT, () =>
   console.log(`🔥 Server running on: http://localhost:${PORT} (${process.env.NODE_ENV})`)
