@@ -68,20 +68,20 @@ export default function Navbar() {
       Icon: CalendarCheck,
     },
     {
-      href: "/services/my-appointments",
-      label: "All Appointments",
+      href: "/appointments",
+      label: "My Appointments",
       Icon: Video,
     },
-    {
-      href: "/services/lab-tests",
-      label: "Lab Tests & Diagnostics",
-      Icon: FlaskConical,
-    },
-    {
-      href: "/services/health-packages",
-      label: "Health Packages",
-      Icon: HeartPulse,
-    },
+    // {
+    //   href: "/services/lab-tests",
+    //   label: "Lab Tests & Diagnostics",
+    //   Icon: FlaskConical,
+    // },
+    // {
+    //   href: "/services/health-packages",
+    //   label: "Health Packages",
+    //   Icon: HeartPulse,
+    // },
   ];
 
   const navItems = [

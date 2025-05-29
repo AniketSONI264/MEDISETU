@@ -47,6 +47,19 @@ import mongoose from "mongoose";
 
 const AppointmentSchema = new mongoose.Schema(
   {
+    // Prescription PDF file (uploaded after consultation)
+prescription: {
+  type: String,
+  default: null,
+},
+
+// Doctor's post-consultation notes
+doctorNotes: {
+  type: String,
+  trim: true,
+  default: "",
+},
+
     userId: {
       type: mongoose.Schema.Types.ObjectId,
       ref: "User",

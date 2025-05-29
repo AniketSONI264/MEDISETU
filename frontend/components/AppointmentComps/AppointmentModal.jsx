@@ -192,7 +192,8 @@ const handlePayment = async () => {
         id: bookingData.appointmentId,
         date: formattedDate,
         time: time,
-        reason: formData.reason
+        reason: formData.reason,
+        fees:cleanedData.paymentAmount
       },
       onSuccess: async (response) => {
         try {
@@ -218,7 +219,8 @@ const handlePayment = async () => {
 
             window.location.href = `/appointment/success?data=${encodeURIComponent(JSON.stringify({
               ...verificationResult.data.appointment,
-              meetLink: bookingData.jitsiMeetLink
+              meetLink: bookingData.meetLink
+              // meetLink: bookingData.jitsiMeetLink
             }))}`;
           } else {
             toast.error('Appointment not confirmed. Please contact support.');
@@ -237,7 +239,7 @@ const handlePayment = async () => {
       },
       onDismiss: () => {
         setPaymentStatus('cancelled');
-        toast.info('Payment cancelled');
+        toast.success('Payment cancelled');
       }
     });
 
@@ -256,197 +258,6 @@ const handlePayment = async () => {
 
 
 
-  //2 const handlePayment = async () => {
-  //   if (!formData.reason.trim()) {
-  //     toast.error("Please provide a reason for the appointment");
-  //     return;
-  //   }
-
-  //   if (!validateVitals()) {
-  //     return;
-  //   }
-
-  //   setIsProcessing(true);
-  //   setPaymentStatus('processing');
-
-  //   try {
-  //     // Format the date to YYYY-MM-DD
-  //     const formattedDate = date.toISOString().split('T')[0];
-
-  //     // Clean up the data before sending
-  //     const cleanedData = {
-  //       doctorId: doctor._id,
-  //       userId: user._id,
-  //       appointmentDate: new Date(formattedDate),
-  //       timeSlot: time,
-  //       appointmentTime:time,
-  //       reasonForVisit: formData.reason.trim(),
-  //       paymentAmount: Number(doctor.consultationFees),
-  //       vitals: {
-  //         bp: formData.bp.trim(),
-  //         sugar: formData.sugar.trim().replace(/[^0-9.]/g, ''),
-  //         height: Number(formData.height.trim().replace(/[^0-9.]/g, '')),
-  //         weight: Number(formData.weight.trim().replace(/[^0-9.]/g, ''))
-  //       }
-  //     };
-
-  //     // Create appointment and get order details
-  //     const bookingResponse = await bookAppointment(cleanedData);
-      
-  //     if (!bookingResponse.success) {
-  //       toast.error(bookingResponse.message);
-  //       setPaymentStatus('failed');
-  //       return;
-  //     }
-
-  //     const { data: bookingData } = bookingResponse;
-      
-  //     // Initialize payment with all required details
-  
-  //     const result = await initializePayment({
-  //       orderId: bookingData.razorpayOrder.id,
-  //       amount: doctor.consultationFees,
-  //       currency: 'INR',
-  //       userDetails: {
-  //         name: user.name,
-  //         email: user.email,
-  //         phone: user.phone,
-  //         _id: user._id
-  //       },
-  //       doctorDetails: {
-  //         id: doctor._id,
-  //         name: `${doctor.firstName} ${doctor.lastName}`,
-  //         specialization: doctor.specialization,
-  //         fees: doctor.consultationFees
-  //       },
-  //       appointmentDetails: {
-  //         id: bookingData.appointmentId,
-  //         date: formattedDate,
-  //         time: time,
-  //         reason: formData.reason
-  //       },
-  //       onSuccess: async (response) => {
-  //         try {
-  //           setPaymentStatus('verifying');
-            
-  //           // Verify payment
-  //           const verificationResult = await verifyPayment({
-  //             orderId: response.razorpay_order_id,
-  //             paymentId: response.razorpay_payment_id,
-  //             signature: response.razorpay_signature,
-  //             appointmentId: bookingData.appointmentId
-  //           });
-
-  //           if (!verificationResult.success) {
-  //             toast.error(verificationResult.message);
-  //             setPaymentStatus('failed');
-  //             return;
-  //           }
-
-  //           if (verificationResult.data?.appointment?.status === 'confirmed') {
-  //             setPaymentStatus('success');
-  //             toast.success('Payment successful! Appointment confirmed.');
-              
-  //             // Redirect to success page with appointment details
-  //             window.location.href = `/appointment/success?data=${encodeURIComponent(JSON.stringify({
-  //               ...verificationResult.data.appointment,
-  //               meetLink: bookingData.jitsiMeetLink
-  //             }))}`;
-  //           } else {
-  //             toast.error('Appointment not confirmed. Please contact support.');
-  //             setPaymentStatus('failed');
-  //           }
-  //         } catch (error) {
-  //           console.error('Payment verification failed:', error);
-  //           setPaymentStatus('failed');
-  //           toast.error('Payment verification failed. Please contact support.');
-  //         }
-  //       },
-  //       onError: (error) => {
-  //         console.error('Payment failed:', error);
-  //         setPaymentStatus('failed');
-  //         toast.error(error.message || 'Payment failed. Please try again.');
-  //       },
-  //       onDismiss: () => {
-  //         setPaymentStatus('cancelled');
-  //         toast.info('Payment cancelled');
-  //       }
-  //     });
-
-  //     if (!result) {
-  //       toast.error('Unable to initialize payment. Please try again.');
-  //       setPaymentStatus('failed');
-  //     }
-  //   } catch (error) {
-  //     console.error('Payment flow error:', error);
-  //     setPaymentStatus('failed');
-  //     toast.error('Something went wrong. Please try again later.');
-  //   } finally {
-  //     setIsProcessing(false);
-  //   }
-  // };
-//  const handlePayment = async (bookingData) => {
-//   try {
-//     const { appointmentId, razorpayOrder } = bookingData;
-
-//     // Ensure razorpayOrder and all necessary fields are valid
-//     if (!razorpayOrder || !razorpayOrder.amount || !razorpayOrder.id) {
-//       throw new Error("Missing Razorpay order details");
-//     }
-
-//     // Make sure user details are provided
-//     if (!user?.name || !user?.email || !user?.phone) {
-//       throw new Error("Missing user details");
-//     }
-
-//     // Define handlers for success, error, and dismiss
-//     const successHandler = async (response) => {
-//       console.log('✅ Payment successful:', response);
-
-//       // Optionally send payment confirmation to backend here...
-//       closeModal?.(); // Close modal or redirect
-//     };
-
-//     const errorHandler = (error) => {
-//       console.error('❌ Payment failed:', error);
-//       alert('Payment failed. Please try again.');
-//     };
-
-//     const dismissHandler = () => {
-//       console.log('💤 User dismissed the payment modal.');
-//     };
-
-//     // Initialize Razorpay payment
-//     const paymentSuccess = await initializePayment({
-//       orderId: razorpayOrder.id,
-//       amount: razorpayOrder.amount,
-//       currency: razorpayOrder.currency,
-//       userDetails: {
-//         name: user?.name || 'Guest',
-//         email: user?.email || 'noemail@example.com',
-//         phone: user?.phone || '0000000000',
-//       },
-//       doctorDetails: {
-//         id: doctor?._id,
-//         name: doctor?.name || 'Doctor',
-//       },
-//       appointmentDetails: {
-//         id: appointmentId,
-//         date: razorpayOrder.notes?.appointmentDate || appointmentDate,
-//         time: razorpayOrder.notes?.appointmentTime || appointmentTime,
-//       },
-//       onSuccess: successHandler,
-//       onError: errorHandler,
-//       onDismiss: dismissHandler,
-//     });
-
-//     if (!paymentSuccess) {
-//       throw new Error('Payment failed to initialize');
-//     }
-//   } catch (err) {
-//     console.error('⚠️ handlePayment error:', err.message);
-//   }
-// };
 
   const renderPaymentStatus = () => {
     switch (paymentStatus) {

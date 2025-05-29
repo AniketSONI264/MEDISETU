@@ -73,6 +73,7 @@ import { AuthProvider } from "@/context/AuthContext";
 import LayoutClient from "./layout-client";
 import Script from "next/script"; // ✅
 import { Toaster } from 'react-hot-toast';
+import Chatbot from "@/components/Chatbot/Chatbot";
 
 const poppins = Poppins({ subsets: ["latin"], weight: ["400", "600", "700"] });
 
@@ -94,6 +95,7 @@ export default function RootLayout({ children }) {
           <LayoutClient>{children}</LayoutClient>
         </AuthProvider>
         <Toaster position="top-right" />
+        {/* <Chatbot /> */}
       </body>
     </html>
   );

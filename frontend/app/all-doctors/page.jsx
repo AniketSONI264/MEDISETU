@@ -52,13 +52,27 @@ const DoctorsPage = () => {
   const [doctors, setDoctors] = useState([]);
 
   useEffect(() => {
+    // const fetchDoctors = async () => {
+    //   try {
+    //     const response = await getAllDoctors();  
+    //     console.log("Page.jsx Response :", response);
+    //     const doctors = response.data.doctors;
+    //     console.log(doctors);
+    //     setDoctors(doctors);  // <-- 🔥 This is now correct!
+    //   } catch (err) {
+    //     console.error("Error fetching doctors:", err);
+    //   }
+    // };
     const fetchDoctors = async () => {
       try {
         const response = await getAllDoctors();  
         console.log("Page.jsx Response :", response);
-        const doctors = response.data.doctors;
-        console.log(doctors);
-        setDoctors(doctors);  // <-- 🔥 This is now correct!
+
+        const allDoctors = response.data.doctors;
+        const verifiedDoctors = allDoctors.filter(doc => doc.isVerified === true);
+
+        console.log("Verified Doctors: ", verifiedDoctors);
+        setDoctors(verifiedDoctors);
       } catch (err) {
         console.error("Error fetching doctors:", err);
       }

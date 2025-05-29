@@ -38,13 +38,12 @@ export const useUser = () => {
         if (isMounted && res?.data?.loggedIn) {
           setUser(res.data.user);
         } else {
-          setUser(null); // token exists but user not logged in
+          setUser(null); 
         }
       } catch (err) {
         if (isMounted) {
           setUser(null);
-          setError("Could not fetch user"); // Don't expose full error stack
-          // Log quietly (optional): send to monitoring tools instead
+          setError("Could not fetch user"); 
         }
       } finally {
         if (isMounted) {
@@ -60,5 +59,5 @@ export const useUser = () => {
     };
   }, []);
 
-  return { user, loading, error }; // You now get clean access to all states
+  return { user, loading, error }; 
 };

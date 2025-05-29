@@ -29,7 +29,7 @@ const SuccessPage = () => {
         if (data) {
           const decodedData = JSON.parse(decodeURIComponent(data));
           setAppointmentData(decodedData);
-
+          console.log("Decoded Data :",decodedData)
           if (decodedData.doctorId) {
             const res = await getDoctorById(decodedData.doctorId);
             setDoctorData(res.data);
@@ -157,13 +157,15 @@ const handleDownloadReceipt = async () => {
           <div className="bg-gray-50 p-4 rounded-lg">
             <h2 className="text-xl font-semibold text-gray-900 mb-4">Appointment Details</h2>
             <div className="grid grid-cols-2 gap-4">
+            <p><span className="font-medium">Appointment Id:</span> {appointmentData._id}</p>
+             
+              <p><span className="font-medium">Time:</span> {appointmentData.timeSlot}</p>
               <p><span className="font-medium">Date:</span> {new Date(appointmentData.appointmentDate).toLocaleDateString('en-US', {
                 weekday: 'long',
                 year: 'numeric',
                 month: 'long',
                 day: 'numeric'
               })}</p>
-              <p><span className="font-medium">Time:</span> {appointmentData.timeSlot}</p>
               <p><span className="font-medium">Status:</span> <span className="text-green-600 font-medium">Confirmed</span></p>
             </div>
           </div>
@@ -212,13 +214,13 @@ const handleDownloadReceipt = async () => {
 
 
           {/* Video Consultation */}
-          {appointmentData.jitsiMeetLink && (
+          {appointmentData.meetLink && (
             <div className="bg-gray-50 p-4 rounded-lg">
               <h2 className="text-xl font-semibold text-gray-900 mb-4">Video Consultation</h2>
               <p className="mb-4">Your video consultation link will be available 15 minutes before the appointment time.</p>
               <Button
                 className="w-full bg-teal-600 hover:bg-teal-700"
-                onClick={() => window.open(appointmentData.jitsiMeetLink, '_blank')}
+                onClick={() => window.open(appointmentData.meetLink, '_blank')}
               >
                 Join Video Consultation
               </Button>

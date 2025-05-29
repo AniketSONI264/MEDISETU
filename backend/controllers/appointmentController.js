@@ -666,7 +666,7 @@ export const getUserAppointments = async (req, res) => {
     const userId = req.user._id;
 
     const appointments = await Appointment.find({ userId })
-      .populate("doctorId", "firstName lastName specialization email phone")
+      .populate("doctorId", "firstName lastName specialization email phone profilePic")
       .sort({ appointmentDate: -1 });
 
     logger.info("User appointments fetched", {
@@ -689,7 +689,7 @@ export const getDoctorAppointments = async (req, res) => {
     const doctorId = req.params.id;
 
     const appointments = await Appointment.find({ doctorId })
-      .populate("userId", "name email phone")
+      .populate("userId", "name email phone profilePic")
       .sort({ appointmentDate: -1 });
 
     logger.info("Doctor appointments fetched", {

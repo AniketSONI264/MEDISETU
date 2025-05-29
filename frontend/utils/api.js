@@ -53,6 +53,50 @@ export const getDoctor = () => API.get("/doctor/auth/status");
 export const getAllDoctors = () => API.get("/allDoctors");
 export const getDoctorBySlug = (slug) => API.get(`/${slug}`);
 export const getDoctorById = (doctorId) => API.get(`/doctor/auth/${doctorId}`);
+export const uploadPrescription = (appointmentId, file) => {
+  const formData = new FormData();
+  formData.append("prescription", file);
+  return API.post(`/doctor/auth/appointments/${appointmentId}/prescription`, formData, {
+    headers: { "Content-Type": "multipart/form-data" },
+  });
+};
+// export const getDoctorAppointments = () => axios.get("/doctor/auth/appointments");
+export const updateAppointmentStatus = (appointmentId, status) => API.patch(`/doctor/auth/appointments/${appointmentId}/status`, { status });
+// export const getDoctorAppointments = async (doctorId) => {
+//   try {
+//     const response = await API.get('/doctor/auth/appointments');
+//     // const response = await API.get(`/appointments/${doctorId}`);
+//     console.log("Get Doctor Appointments Response:", response);
+//     return {
+//       success: true,
+//       data: response.data.appointments,
+//       message: 'Appointments retrieved successfully'
+//     };
+//   } catch (error) {
+//     console.log('Get Doctor Appointments Error:', {
+//       message: error.message,
+//       response: error.response?.data,
+//       status: error.response?.status
+//     });
+
+//     return {
+//       success: false,
+//       message: 'Unable to fetch appointments. Please try again.',
+//       error: 'FETCH_FAILED'
+//     };
+//   }
+// };
+
+export const getDoctorAppointments = () => API.get('/doctor/auth/appointments');
+// export const getDoctorAppointments = async (doctorId) => API.get('/doctor/auth/appointments',doctorId);
+export const getDoctorProfile = () => API.get("/doctor/auth/profile");
+export const updateDoctorProfile = (doctorData) => API.put("/doctor/auth/profile", doctorData);
+export const getPatients = () => API.get("/doctor/auth/patients");
+
+export const getEarnings = () => API.get("/doctor/auth/earnings");
+
+
+
 
 // 👑 Admin: Get All Users
 export const getAllAdminUsers = () => API.get("/admin/users");
@@ -96,6 +140,9 @@ export const getUser = () => API.get("/auth/me");
 
 // export const verifyDoctor = (id, isVerified) =>
 //   API.put(`/admin/doctors/${id}/verify`, { isVerified });
+// User Appointments
+// export const getUserAppointments = () => API.get("/appointments/user");
+
 
 // 🩺 Appointment APIs
 export const createOrder = async (amount) => {
@@ -334,9 +381,9 @@ export const verifyPayment = async (paymentData) => {
 
 export const cancelAppointment = async (appointmentId) => {
   try {
-    const response = await API.post(`/appointments/${appointmentId}/cancel`);
+    const response = await API.put(`/appointments/cancel/${appointmentId}`);
     console.log("Cancel Appointment Response:", response);
-    
+
     if (!response.data?.message) {
       return {
         success: false,
@@ -365,6 +412,7 @@ export const cancelAppointment = async (appointmentId) => {
   }
 };
 
+
 export const getUserAppointments = async () => {
   try {
     const response = await API.get("/appointments/user");
@@ -389,29 +437,7 @@ export const getUserAppointments = async () => {
   }
 };
 
-export const getDoctorAppointments = async (doctorId) => {
-  try {
-    const response = await API.get(`/appointments/doctor/${doctorId}`);
-    console.log("Get Doctor Appointments Response:", response);
-    return {
-      success: true,
-      data: response.data.appointments,
-      message: 'Appointments retrieved successfully'
-    };
-  } catch (error) {
-    console.log('Get Doctor Appointments Error:', {
-      message: error.message,
-      response: error.response?.data,
-      status: error.response?.status
-    });
 
-    return {
-      success: false,
-      message: 'Unable to fetch appointments. Please try again.',
-      error: 'FETCH_FAILED'
-    };
-  }
-};
 
 export const getSingleAppointment = async (appointmentId) => {
   try {
