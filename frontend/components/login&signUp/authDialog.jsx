@@ -117,6 +117,7 @@ import "react-toastify/dist/ReactToastify.css"; // ✅ Import Toast Styles
 export default function AuthDialog({ isOpen, onClose }) {
   const [isLogin, setIsLogin] = useState(true);
   const [showPassword, setShowPassword] = useState(false);
+  const [loding, setLoading] = useState(false);
   const [formData, setFormData] = useState({ firstName: "", lastName: "", email: "", password: "" });
 
   // Handle input changes
@@ -125,20 +126,48 @@ export default function AuthDialog({ isOpen, onClose }) {
   };
 
   // Handle form submission (Login/Signup)
-const handleSubmit = async(e) =>{
+// const handleSubmit = async(e) =>{
+//   e.preventDefault();
+//   setLoading(true);
+//   try{
+//     const response = isLogin ? await loginUser(formData) : await registerUser(formData);
+//     toast.success(`${isLogin ? "Logged In": "Registered & Logged In"} successfully!`);
+//     console.log("Response : ",response)
+//     onClose();  
+//   }catch(error){
+//     toast.error(error.response ?.data?.message || "Something Went Wrong");
+//   }
+
+// }
+
+const handleSubmit = async (e) => {
   e.preventDefault();
-  try{
-    const response = isLogin ? await loginUser(formData) : await registerUser(formData);
-    toast.success(`${isLogin ? "Logged In": "Registered & Logged In"} successfully!`);
-    console.log("Response : ",response)
-    onClose();  
-  }catch(error){
-    toast.error(error.response ?.data?.message || "Something Went Wrong");
+  setLoading(true);
+
+  try {
+    const response = isLogin
+      ? await loginUser(formData)
+      : await registerUser(formData);
+
+    if (response.status === 200 || response.status === 201) {
+      toast.success(`${isLogin ? "Logged In" : "Registered & Logged In"} successfully!`);
+      window.location.reload(); // 🔄 Refresh to re-fetch user data
+    } else {
+      throw new Error("Unexpected response status");
+    }
+
+    onClose?.(); // optional cleanup
+  } catch (error) {
+    console.error("Auth Error:", error);
+    toast.error(error?.response?.data?.message || "Something went wrong.");
+  } finally {
+    setLoading(false);
   }
+};
 
-}
 
-  return (
+
+    return (
     isOpen && (
       <div className="fixed inset-0 flex items-center justify-center bg-opacity-20 backdrop-blur-lg z-50 px-4 sm:px-6 md:px-8">
         <div className="bg-white dark:bg-gray-900 rounded-2xl p-8 w-full max-w-md shadow-2xl relative transition-all duration-300 border border-teal-500">

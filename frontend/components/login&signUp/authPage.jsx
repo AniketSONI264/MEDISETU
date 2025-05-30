@@ -21,20 +21,43 @@ const AuthPage = () => {
 
   const router = useRouter();
 
+  // const handleLogin = async (e) => {
+  //   e.preventDefault();
+  //   setLoading(true);
+  //   setError('');
+  
+  //   try {
+  //     const response = await loginDoctor({ email, password });
+  
+  //     if (response.status === 200) {
+  //       toast.success('Login successful! 🚀');
+  
+  //       // 👇 This ensures layout re-checks auth from scratch
+  //       window.location.href = "/doctor";
+  
+  //     } else {
+  //       throw new Error('Unexpected response');
+  //     }
+  //   } catch (err) {
+  //     console.error("Login Error:", err?.response?.data || err.message || err);
+  //     setError('Login failed. Please check your credentials.');
+  //     toast.error('Login failed 😔');
+  //   } finally {
+  //     setLoading(false);
+  //   }
+  // };
+
   const handleLogin = async (e) => {
     e.preventDefault();
     setLoading(true);
     setError('');
   
     try {
-      const response = await loginDoctor({ email, password });
+      const response = await loginUser({ email, password }); // calls axios withCredentials
   
       if (response.status === 200) {
         toast.success('Login successful! 🚀');
-  
-        // 👇 This ensures layout re-checks auth from scratch
-        window.location.href = "/doctor";
-  
+        window.location.reload(); // ✅ Force auth state reload
       } else {
         throw new Error('Unexpected response');
       }
