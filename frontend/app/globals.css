@@ -1,4 +1,4 @@
-@import "tailwindcss";
+/* @import "tailwindcss";
 
 :root {
   --background: #ffffff;
@@ -26,6 +26,50 @@ body {
 }
 
 ::selection {
-  background-color: #00e6b8; /* Yellow */
-  color: white; /* Text color */
+  background-color: #00e6b8; 
+  color: white; 
+} */
+
+
+
+@import "tailwindcss";
+
+/* Force light mode variables */
+:root {
+  --background: #ffffff;
+  --foreground: #171717;
+
+  --color-background: #ffffff;
+  --color-foreground: #171717;
+
+  --font-sans: 'Inter', sans-serif;
+  --font-mono: monospace;
+}
+
+/* ✂️ REMOVE this if you're not using some special plugin that relies on it */
+@layer base {
+  html {
+    color-scheme: light !important;
+    background-color: #ffffff !important;
+  }
+
+  body {
+    background: var(--background) !important;
+    color: var(--foreground) !important;
+    font-family: var(--font-sans), sans-serif !important;
+  }
+}
+
+/* Optional override just in case browser still plays around */
+@media (prefers-color-scheme: dark) {
+  html, body {
+    color-scheme: light !important;
+    background-color: #ffffff !important;
+    color: #171717 !important;
+  }
+}
+
+::selection {
+  background-color: #00e6b8;
+  color: white;
 }
