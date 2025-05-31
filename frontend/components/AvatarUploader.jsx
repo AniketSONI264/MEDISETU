@@ -22,7 +22,7 @@ export default function AvatarUploader({ avatar, onUploadSuccess }) {
     formData.append("image", selectedFile);
 
     try {
-      const res = await axios.post("/api/upload-avatar", formData);
+      const res = await axios.post("/upload-avatar", formData);
       onUploadSuccess(res.data.imageUrl);
     } catch (error) {
       console.error("Image Upload Failed", error);

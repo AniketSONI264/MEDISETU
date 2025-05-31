@@ -27,7 +27,7 @@ export default function ContactUs() {
 
     try {
       // Ensure this is the correct API endpoint
-      const response = await fetch(`${process.env.NEXT_PUBLIC_BACKEND_URL}/api/contact-us`, {
+      const response = await fetch(`${process.env.NEXT_PUBLIC_BACKEND_URL}/contact-us`, {
         method: "POST",
         headers: {
           "Content-Type": "application/json",
@@ -76,9 +76,9 @@ export default function ContactUs() {
 
       <div className="space-y-3">
         {[
-          { icon: <Phone className="text-blue-500" />, text: "+91 9876543210 (Support Hotline)" },
-          { icon: <Mail className="text-red-500" />, text: "support@medisetu.com" },
-          { icon: <MapPin className="text-green-500" />, text: "123, MediSetu Street, India" }
+          { icon: <Phone className="text-blue-500" />, text: "+91 8085979976" },
+          { icon: <Mail className="text-red-500" />, text: "aniketsoni3529@gmail.com" },
+          { icon: <MapPin className="text-green-500" />, text: "Aniket Soni Rampur Baghelan, Satna (M.P.), India" }
         ].map((item, index) => (
           <motion.div
             key={index}
@@ -227,11 +227,19 @@ export default function ContactUs() {
     <strong>Need to reach us?</strong> Find our office on the map below and drop by during working hours.
   </p>
   <div className="w-full h-50">
-    <iframe
+    {/* <iframe
       className="w-full h-full rounded-lg"
       src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3151.835434508619!2d144.9537363159046!3d-37.817209979751554!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x6ad642af0f11fd81%3A0xf5773f5f4e5a5e7b!2s123%2C%20MediSetu%20Street%2C%20India!5e0!3m2!1sen!2sin!4v1613543827485"
       allowFullScreen=""
       loading="lazy"
+    ></iframe> */}
+    <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d14521.23726514281!2d81.04788625007383!3d24.50937705055878!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x398467002195403d%3A0x3fb66979e863b42d!2sRampur%2C%20Madhya%20Pradesh%20485115!5e0!3m2!1sen!2sin!4v1748673887948!5m2!1sen!2sin" 
+    // width="600" 
+    // height="450" 
+    // style="border:0;" 
+    className="w-full h-full rounded-lg"
+    allowFullScreen="" 
+    loading="lazy" 
     ></iframe>
   </div>
 </div>

@@ -89,7 +89,7 @@ export default function Chatbot() {
 
   const handleBotResponse = async (message) => {
     try {
-      const response = await fetch("/api/chatbot", {
+      const response = await fetch("/chatbot", {
         method: "POST",
         headers: {
           "Content-Type": "application/json",

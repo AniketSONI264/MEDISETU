@@ -31,7 +31,7 @@ const AppointmentForm = ({ doctorId, date, time, onClose }) => {
         reason: form.reason,
       };
 
-      const res = await axios.post("/api/appointments/book", payload);
+      const res = await axios.post("/appointments/book", payload);
       alert("Appointment booked successfully!");
       onClose();
     } catch (err) {

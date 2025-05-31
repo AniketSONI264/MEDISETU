@@ -134,7 +134,7 @@ export default function AdminDashboard() {
     const fetchStats = async () => {
       const toastId = toast.loading("Fetching dashboard stats...");
       try {
-        const response = await fetch('/api/admin/stats');
+        const response = await fetch('/admin/stats');
         const data = await response.json();
         if (data.success) {
           setStats(data.stats);

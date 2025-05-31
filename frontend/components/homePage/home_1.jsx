@@ -108,7 +108,7 @@ export default function CarouselPage() {
     const timeout = setTimeout(async () => {
       setIsLoading(true);
       try {
-        const res = await fetch(`/api/search?query=${searchTerm}`);
+        const res = await fetch(`/search?query=${searchTerm}`);
         const data = await res.json();
         setSearchResults(data);
         setIsDropdownOpen(true);

@@ -53,7 +53,7 @@
 //           </ul>
 
 //           <p className="mt-10 italic">
-//             For questions, contact us at support@medisetu.com
+//             For questions, contact us at aniketsoni3529@gmail.com
 //           </p>
 //         </section>
 //       </motion.div>
@@ -130,7 +130,7 @@
 //           </ul>
 
 //           <p className="mt-10 italic">
-//             For questions, contact us at <a href="mailto:support@medisetu.com" className="text-blue-600 underline">support@medisetu.com</a>
+//             For questions, contact us at <a href="mailto:aniketsoni3529@gmail.com" className="text-blue-600 underline">aniketsoni3529@gmail.com</a>
 //           </p>
 //         </section>
 //       </motion.div>
@@ -243,10 +243,10 @@
 //           <p className="mt-12 italic">
 //             For questions, contact us at{" "}
 //             <a
-//               href="mailto:support@medisetu.com"
+//               href="mailto:aniketsoni3529@gmail.com"
 //               className="text-blue-600 underline"
 //             >
-//               support@medisetu.com
+//               aniketsoni3529@gmail.com
 //             </a>
 //           </p>
 //         </section>
@@ -390,10 +390,10 @@
 //             <p className="italic text-sm text-gray-500">
 //               Questions? Reach out to us at{" "}
 //               <a
-//                 href="mailto:support@medisetu.com"
+//                 href="mailto:aniketsoni3529@gmail.com"
 //                 className="text-blue-600 underline font-medium"
 //               >
-//                 support@medisetu.com
+//                 aniketsoni3529@gmail.com
 //               </a>
 //             </p>
 //           </div>
@@ -549,8 +549,8 @@
 //         {/* Contact */}
 //         <div className="text-center text-sm text-gray-500 italic mt-10">
 //           Questions? Email us at{" "}
-//           <a href="mailto:support@medisetu.com" className="text-blue-600 underline font-medium">
-//             support@medisetu.com
+//           <a href="mailto:aniketsoni3529@gmail.com" className="text-blue-600 underline font-medium">
+//             aniketsoni3529@gmail.com
 //           </a>
 //         </div>
 //       </motion.div>
@@ -737,8 +737,8 @@ export default function PrivacyPolicy() {
         {/* Contact Info */}
         <div className="text-center text-sm text-gray-500 italic mt-10">
           Questions? Email us at{" "}
-          <a href="mailto:support@medisetu.com" className="text-blue-600 underline font-medium">
-            support@medisetu.com
+          <a href="mailto:aniketsoni3529@gmail.com" className="text-blue-600 underline font-medium">
+            aniketsoni3529@gmail.com
           </a>
         </div>
       </motion.div>

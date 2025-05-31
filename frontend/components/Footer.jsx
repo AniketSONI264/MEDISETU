@@ -77,9 +77,9 @@ export default function Footer() {
         <div className="space-y-5">
           <h3 className="text-2xl font-semibold text-white border-b-2 border-teal-300 pb-2">Contact Us</h3>
           {[
-            { text: "+91 98765 43210", Icon: Phone },
-            { text: "support@medisetu.com", Icon: Mail },
-            { text: "MediSetu HQ, New Delhi, India", Icon: MapPin }
+            { text: "+91 8085979976", Icon: Phone },
+            { text: "aniketsoni3529@gmail.com", Icon: Mail },
+            { text: "MediSetu HQ, Rampur Baghelan, Satna, India", Icon: MapPin }
           ].map(({ text, Icon }, index) => (
             <div key={index} className="flex items-center space-x-3 text-gray-300">
               <motion.div

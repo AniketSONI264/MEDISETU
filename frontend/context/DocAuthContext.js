@@ -23,7 +23,7 @@ export const DocAuthProvider = ({ children }) => {
     setLoading(true);
     try {
       // Make an API call to check doctor authentication status
-      const response = await axios.get(`${process.env.NEXT_PUBLIC_BACKEND_URL}/api/doctor/auth/status`, {
+      const response = await axios.get(`${process.env.NEXT_PUBLIC_BACKEND_URL}/doctor/auth/status`, {
         withCredentials: true,  // Make sure to include cookies (DocToken)
       });
       console.log("Doctor Auth check response: ", response.data);
