@@ -2,7 +2,7 @@
 
 import { useState } from "react";
 import { Send, User, Mail,Clock, Phone, MessageSquare,MapPin ,Handshake, Stethoscope, Briefcase} from "lucide-react";
-import { toast } from "react-toastify";
+import { toast } from "react-hot-toast";
 import "react-toastify/dist/ReactToastify.css";
 import { motion } from "framer-motion";
 export default function ContactUs() {
