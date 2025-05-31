@@ -98,11 +98,11 @@ export default function Footer() {
           <h3 className="text-2xl font-semibold text-white border-b-2 border-teal-300 pb-2">Follow Us</h3>
           <div className="flex space-x-5">
             {[
-              { Icon: Facebook, href: "https://facebook.com", color: "text-blue-500" },
+              { Icon: Facebook, href: "https://www.facebook.com/aniket.soni.988373", color: "text-blue-500" },
               { Icon: Twitter, href: "https://twitter.com", color: "text-blue-400" },
-              { Icon: Instagram, href: "https://instagram.com", color: "text-pink-500" },
+              { Icon: Instagram, href: "https://www.instagram.com/a__niket/", color: "text-pink-500" },
               { Icon: Youtube, href: "https://youtube.com", color: "text-red-500" },
-              { Icon: Linkedin, href: "https://linkedin.com", color: "text-blue-700" },
+              { Icon: Linkedin, href: "www.linkedin.com/in/ani--ket", color: "text-blue-700" },
             ].map(({ Icon, href, color }, index) => (
               <motion.a
                 key={index}
