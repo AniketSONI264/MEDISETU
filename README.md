@@ -24,7 +24,7 @@ Built with **Next.js**, **Express.js**, and **MongoDB**, MediSetu aims to stream
 - 📹 **Jitsi Meet** for real-time video consultations
 - 🤖 **Dialogflow Chatbot** for AI-based user support
 - 🔔 WebSockets for real-time notifications (appointments, messages)
-- 🌐 Deployed via **Vercel / Render** *(coming soon)*
+- 🌐 Deployed via **Vercel / Render** 
 
 ---
 
@@ -36,8 +36,8 @@ Built with **Next.js**, **Express.js**, and **MongoDB**, MediSetu aims to stream
 ✅ Patient Dashboard to view & book appointments  
 ✅ MongoDB-powered database with dynamic schema  
 ✅ REST APIs for dynamic booking logic  
-🧠 AI-based chatbot assistant (Coming Soon)  
-📞 Embedded video consultation (Coming Soon)  
+🧠 AI-based chatbot assistant 
+📞 Embedded video consultation 
 📲 Mobile-responsive UI with upcoming Tailwind refactor  
 
 ---
